@@ -13,8 +13,8 @@
 <body>
 	
 	<div class="header">
-    	<b>您好：admin</b>
-        <span>退出</span>
+    	<b>您好：{{asset()->user()->name}}</b>
+        <a href="{!! route('auth.logout') !!}" class="btn btn-default btn-flat"> <span>退出</span></a>
     </div>
     <ul class="goods-list">
         @foreach($products as $product)
