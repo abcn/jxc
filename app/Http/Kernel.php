@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\LocaleMiddleware::class,
         ],
 
+
         'admin' => [
             'web',
             'auth',
@@ -59,6 +60,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'market' => \App\Http\Middleware\MarketAuth::class,
 
         /**
          * Access Middleware

@@ -26,8 +26,12 @@ class IndexController extends Controller
 
     public function index()
     {
+        if(access()->user() == null){
+            return redirect(route('market.login'));
+        }
         //获取商品列表
         $products = $this->market->all();
+
         return view('frontend.market.goods-list',compact('products'));
     }
 
@@ -41,6 +45,9 @@ class IndexController extends Controller
 
     public function action($id)
     {
+        if(access()->user() == null){
+            return redirect(route('market.login'));
+        }
         //获取商品信息
         $info = $this->market->findOrFail($id);
         //获取状态信息
@@ -57,6 +64,9 @@ class IndexController extends Controller
 
     public function login()
     {
+        if(access()->hasRole(3) || access()->hasRole(4)){
+            return redirect(route('market.list'));
+        }
         return view('frontend.market.home-page');
     }
 }
