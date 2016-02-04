@@ -47,7 +47,7 @@
             'url': '{{route('market.action',$info->id)}}',
             'data':{'status':status,'_token':'{{csrf_token()}}'},
             'success': function(data){
-                alert('ok');
+                window.location.reload();
             }
         })
     }
