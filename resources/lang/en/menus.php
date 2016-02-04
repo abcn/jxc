@@ -15,55 +15,55 @@ return [
 
     'backend' => [
         'access' => [
-            'title' => 'Access Management',
+            'title' => '权限管理',
 
             'permissions' => [
-                'all' => 'All Permissions',
-                'create' => 'Create Permission',
-                'edit' => 'Edit Permission',
+                'all' => '所有权限',
+                'create' => '创建权限',
+                'edit' => '编辑权限',
                 'groups' => [
-                    'all' => 'All Groups',
-                    'create' => 'Create Group',
-                    'edit' => 'Edit Group',
-                    'main' => 'Groups',
+                    'all' => '所有分组',
+                    'create' => '创建分组',
+                    'edit' => '编辑分组',
+                    'main' => '角色分组',
                 ],
-                'main' => 'Permissions',
-                'management' => 'Permission Management',
+                'main' => '权限',
+                'management' => '权限管理',
             ],
 
             'roles' => [
-                'all' => 'All Roles',
-                'create' => 'Create Role',
-                'edit' => 'Edit Role',
-                'management' => 'Role Management',
-                'main' => 'Roles',
+                'all' => '所有角色',
+                'create' => '创建角色',
+                'edit' => '编辑角色',
+                'management' => '角色管理',
+                'main' => '用户角色',
             ],
 
             'users' => [
-                'all' => 'All Users',
-                'change-password' => 'Change Password',
-                'create' => 'Create User',
-                'deactivated' => 'Deactivated Users',
-                'deleted' => 'Deleted Users',
-                'edit' => 'Edit User',
-                'main' => 'Users',
+                'all' => '所有用户',
+                'change-password' => '更改密码',
+                'create' => '创建用户',
+                'deactivated' => '未激活用户',
+                'deleted' => '删除用户',
+                'edit' => '编辑用户',
+                'main' => '后台管理用户',
             ],
         ],
 
         'log-viewer' => [
-            'main' => 'Log Viewer',
-            'dashboard' => 'Dashboard',
-            'logs' => 'Logs',
+            'main' => '查看日志',
+            'dashboard' => '控制面板',
+            'logs' => '日志记录',
         ],
 
         'sidebar' => [
-            'dashboard' => 'Dashboard',
+            'dashboard' => '控制面板',
             'general' => 'General',
         ],
     ],
 
     'language-picker' => [
-        'language' => 'Language',
+        'language' => '语言选择',
         /**
          * Add the new language to this array.
          * The key should have the same language code as the folder name.
@@ -71,12 +71,9 @@ return [
          * Be sure to add the new language in alphabetical order.
          */
         'langs' => [
-            'de' => 'German',
             'en' => 'English',
-            'es' => 'Spanish',
             'fr' => 'French',
             'it' => 'Italian',
-            'pt-BR' => 'Brazilian Portuguese',
             'sv' => 'Swedish',
         ],
     ],

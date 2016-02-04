@@ -1,5 +1,13 @@
 <?php
 
+Route::group(['namespace' => 'Frontend'], function() {
+    /**
+     * Frontend Routes
+     * Namespaces indicate folder structure
+     */
+
+});
+
 Route::group(['middleware' => 'web'], function() {
     /**
      * Switch between the included languages
@@ -15,6 +23,7 @@ Route::group(['middleware' => 'web'], function() {
     Route::group(['namespace' => 'Frontend'], function () {
         require (__DIR__ . '/Routes/Frontend/Frontend.php');
         require (__DIR__ . '/Routes/Frontend/Access.php');
+        require (__DIR__ . '/Routes/Frontend/Market.php');
     });
 });
 
@@ -34,4 +43,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ad
     require (__DIR__ . '/Routes/Backend/Dashboard.php');
     require (__DIR__ . '/Routes/Backend/Access.php');
     require (__DIR__ . '/Routes/Backend/LogViewer.php');
+    //市场管理
+    require (__DIR__ . '/Routes/Backend/Market.php');
 });

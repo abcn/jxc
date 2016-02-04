@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-color:#e5e5e5; height:100%;}
+.header{ border-bottom:1px #787878 solid; overflow:hidden;}
+
+.header b{ float:left; font-size:12px; margin-left:25px; line-height:28px;}
+.header span{ float:right;font-size:12px; margin-right:25px;line-height:28px;}
+.goodsimg-box{ width:280px; height:117px; margin-left:auto; margin-right:auto; margin-top:2.5%; margin-bottom:4.2%;}
+.goodsimg-box img{ width:100%; height:100%;}
+li{ list-style:decimal;}
+ol{ width:240px; margin-left:auto; margin-right:auto;}
+ol li{ margin-bottom:2.5%; font-size:12px; }
+.btn-box{ width:280px; margin-left:auto; margin-right:auto; overflow:hidden; margin-top:6%; position:relative;}
+.agree-btn{ width:98px; line-height:47px; background-color:#FFF; border:1px solid #787878; border-radius:4px; text-align:center; float:left; font-size:14px;}
+.disagree-btn{width:98px; line-height:47px; background-color:#FFF; border:1px solid #787878; border-radius:3px; text-align:center; float:right;font-size:14px;}
+.footer{ font-size:14px; line-height:38px; text-align:center; border-top:1px solid #787878; width:100%; position:fixed; bottom:0; left:0px;}

@@ -81,3 +81,10 @@ if (! function_exists('getLanguageBlock')) {
         }
     }
 }
+
+if (! function_exists('bower')){
+    function bower($path)
+    {
+        return asset('bower_components/'.$path);
+    }
+}

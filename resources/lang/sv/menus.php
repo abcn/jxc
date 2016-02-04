@@ -71,12 +71,9 @@ return [
          * Be sure to add the new language in alphabetical order.
          */
         'langs' => [
-            'de' => 'Tyska (German)',
-            'pt-BR' => 'Brasiliansk portugisiska (Brazilian Portuguese)',
-            'en' => 'Engelska (English)',
-            'fr' => 'Franska (French)',
-            'it' => 'Italienska (Italian)',
-            'es' => 'Spanska (Spanish)',
+            'en' => 'English',
+            'fr' => 'Français (France)',
+            'it' => 'Italiano',
             'sv' => 'Svenska (Swedish)',
         ],
     ],
