@@ -13,7 +13,7 @@
 <body>
 	
 	<div class="header">
-    	<b>您好：{{asset()->user()->name}}</b>
+    	<b>您好：{{access()->user()->name}}</b>
         <a href="{!! route('auth.logout') !!}" class="btn btn-default btn-flat"> <span>退出</span></a>
     </div>
     <ul class="goods-list">
