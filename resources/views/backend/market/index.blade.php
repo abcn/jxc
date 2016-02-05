@@ -124,7 +124,7 @@
             }else if((row.status == 2)){
                 var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="已否决">已否决</i></a>';
             }
-            var edit_button =  '@permission('admin-market-check')<a href="/admin/market/'+row.id+'/edit" class="btn btn-xs btn-success" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="编辑">编辑</i></a>@endauth';
+            var edit_button =  '@permission('admin-market-edit')<a href="/admin/market/'+row.id+'/edit" class="btn btn-xs btn-success" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="编辑">编辑</i></a>@endauth';
             var delete_button = '<a href="javascript:void(0);" data-method="delete" disabled="disabled" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除">删除</i></a>';
             return edit_button+delete_button+status_button;
         }
