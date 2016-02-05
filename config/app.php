@@ -193,6 +193,9 @@ return [
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
          */
         App\Providers\MacroServiceProvider::class,
+
+        //imageservice
+        Intervention\Image\ImageServiceProviderLaravel5::class,
     ],
 
     /*
@@ -249,6 +252,8 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        //images
+        'Image'      => Intervention\Image\Facades\Image::class,
     ],
 
 ];

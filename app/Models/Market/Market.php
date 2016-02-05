@@ -13,5 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Market extends Model
 {
-    protected $fillable = ['status'];
+    protected $fillable = ['status','title1','sc_price','cb_price','rank','desc','alibaba1','alibaba2','investigators','amount'];
+
+    public function image()
+    {
+        return $this->hasMany('App\Models\Market\MarketImage');
+    }
 }

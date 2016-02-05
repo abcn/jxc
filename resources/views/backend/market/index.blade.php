@@ -26,8 +26,8 @@
                    data-cookie-id-table="order"
                    data-side-pagination="server"
                    data-pagination="true"
-                   data-page-size="500"
-                   data-page-list="[500, 1000]"
+                   data-page-size="20"
+                   data-page-list="[20, 50, 100]"
                    data-pagination-first-text="第一页"
                    data-pagination-pre-text="上一页"
                    data-pagination-next-text="下一页"
@@ -43,7 +43,6 @@
                 <tr>
                     <th data-field="state" data-checkbox="true"></th>
                     <th data-field="id">ID</th>
-                    <th data-field="image">图片</th>
                     <th data-field="title1">名称</th>
                     <th data-field="cb_price">成本价</th>
                     <th data-field="sc_price">市场价</th>
@@ -119,16 +118,15 @@
 
         //获取操作button
         function actionFormatter(value, row, index) {
-
-            if(row.import_state == 1){
-                var import_button =  '<a href="order/'+row['id']+'/sub" class="btn btn-xs btn-success" disabled="disabled"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="查看分单">查看分单</i></a></i>';
-                var import_ID_button = '<a href="order/'+row['id']+'/ID" class="btn btn-xs btn-success" disabled="disabled"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="导出身份证" id="export">导出身份证</i></a> ';
-            }else{
-                var import_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="编辑">编辑</i></a></i>';
-                var import_ID_button = '';
+            var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(1,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="同意">同意</i></a><a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(2,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="否决">否决</i></a>';
+            if(row.status == 1){
+                var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="已同意">已同意</i></a>';
+            }else if((row.status == 2)){
+                var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="已否决">已否决</i></a>';
             }
+            var edit_button =  '<a href="/admin/market/'+row.id+'/edit" class="btn btn-xs btn-success" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="编辑">编辑</i></a>';
             var delete_button = '<a href="javascript:void(0);" data-method="delete" disabled="disabled" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除">删除</i></a>';
-            return import_button+import_ID_button+delete_button;
+            return edit_button+delete_button+status_button;
         }
         //返回搜索参数值
         function getQueryParams(params) {
@@ -168,6 +166,16 @@
                 window.setTimeout(function(){ } ,3000);
                 location.reload();
             }
+        }
+        function action(status,id){
+            $.ajax({
+                'type': 'POST',
+                'url': '{{route('admin.market.action')}}',
+                'data':{'status':status,'_token':'{{csrf_token()}}','id':id},
+                'success': function(data){
+                    window.location.reload();
+                }
+            })
         }
     </script>
 @endsection

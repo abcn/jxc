@@ -6,7 +6,7 @@
  * Time: 上午11:07
  */
 Route::group(['namespace' => 'Market'], function() {
-    Route::get('market','MarketController@index')->name('admin.market');
-    Route::get('market/create','MarketController@create')->name('admin.market.create');
     Route::get('market/data','MarketController@data')->name('admin.market.data');
+    Route::post('market/action','MarketController@action')->name('admin.market.action');
+    Route::resource('market','MarketController');
 });
