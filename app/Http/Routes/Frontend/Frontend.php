@@ -3,8 +3,7 @@
 /**
  * Frontend Controllers
  */
-//Route::get('/', 'FrontendController@index')->name('frontend.index');
-Route::get('/', 'Auth\AuthController@showLoginForm')->name('frontend.index');
+Route::get('/', 'FrontendController@index')->name('frontend.index');
 
 Route::get('macros', 'FrontendController@macros')->name('frontend.macros');
 
