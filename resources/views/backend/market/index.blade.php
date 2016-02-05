@@ -118,7 +118,7 @@
 
         //获取操作button
         function actionFormatter(value, row, index) {
-            var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(1,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="同意">同意</i></a><a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(2,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="否决">否决</i></a>';
+            var status_button =  '@permission('admin-market-check')<a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(1,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="同意">同意</i></a><a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="action(2,'+row['id']+')" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="否决">否决</i></a>@endauth';
             if(row.status == 1){
                 var status_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" ><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="已同意">已同意</i></a>';
             }else if((row.status == 2)){
