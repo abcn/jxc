@@ -44,13 +44,13 @@
                     <th data-field="state" data-checkbox="true"></th>
                     <th data-field="id">ID</th>
                     <th data-field="image">图片</th>
-                    <th data-field="title">名称</th>
+                    <th data-field="title1">名称</th>
                     <th data-field="cb_price">成本价</th>
                     <th data-field="sc_price">市场价</th>
                     <th data-field="rank">排名</th>
                     <th data-field="investigators">调查员</th>
                     <th data-field="amount">数量</th>
-                    <th data-field="status">审批状态</th>
+                    <th data-field="status" data-formatter="status">审批状态</th>
                     <th data-field="action" data-formatter="actionFormatter">操作</th>
                 </tr>
                 </thead>
@@ -102,38 +102,32 @@
             return clearance_state;
         }
         //到港状态
-        function portState(value) {
-            var port_state = '';
+        function status(value) {
+            var status = '';
             switch (value){
                 case '1':
-                    port_state = '未到港';
+                    status = '已同意';
                     break;
                 case '2':
-                    port_state = '清关中';
-                    break;
-                case '3':
-                    port_state = '已到港';
+                    status = '已否决';
                     break;
                 default:
-                    port_state = '未到港';
+                    status = '未审核';
             }
-            return port_state;
+            return status;
         }
-        //报关状态
-        function declearState(value) {
-            return value ? '已报关' : '未报关';
-        }
+
         //获取操作button
         function actionFormatter(value, row, index) {
 
             if(row.import_state == 1){
-                var import_button =  '<a href="order/'+row['id']+'/sub" class="btn btn-xs btn-success"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="查看分单">查看分单</i></a></i>';
-                var import_ID_button = '<a href="order/'+row['id']+'/ID" class="btn btn-xs btn-success"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="导出身份证" id="export">导出身份证</i></a> ';
+                var import_button =  '<a href="order/'+row['id']+'/sub" class="btn btn-xs btn-success" disabled="disabled"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="查看分单">查看分单</i></a></i>';
+                var import_ID_button = '<a href="order/'+row['id']+'/ID" class="btn btn-xs btn-success" disabled="disabled"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="导出身份证" id="export">导出身份证</i></a> ';
             }else{
-                var import_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="导入">导入</i></a></i>';
+                var import_button =  '<a href="javascript:void(0);" class="btn btn-xs btn-success" disabled="disabled" onclick="importSubOrder('+row['id']+')"><i class="fa fa-play" data-toggle="tooltip" data-placement="top" title="编辑">编辑</i></a></i>';
                 var import_ID_button = '';
             }
-            var delete_button = '<a href="order/'+row['id']+'/destroy" data-method="delete" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除">删除</i></a>';
+            var delete_button = '<a href="javascript:void(0);" data-method="delete" disabled="disabled" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="删除">删除</i></a>';
             return import_button+import_ID_button+delete_button;
         }
         //返回搜索参数值
@@ -146,32 +140,7 @@
             });
             return params; // body data
         }
-        //导入分单函数
-        //
-        function importSubOrder(id){
-            $('#import').modal('show');
-            //赋值订单ID
-            $('#order_id').val(id);
-        }
-        //提交分单
-        $(function (){
-            //点
-            var options = {
-                beforeSubmit:  showRequest,
-                success:       showResponse,
-                dataType: 'json'
-            };
-            $("#upload_button").click(function() {
-                var loader = '<div class="loader-inner ball-clip-rotate">'+
-                        '<div></div>'+
-                        '</div>';
-                $('#upload_button').html(loader);
-                //disable
-                $('#upload_button').attr('disabled','disabled');
-                $('#upload_form').ajaxForm(options).submit();
-                //执行loader css
-            });
-        })
+
         function showRequest() {
             $("#validation-errors").hide().empty();
             return true;

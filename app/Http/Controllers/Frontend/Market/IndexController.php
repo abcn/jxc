@@ -64,9 +64,6 @@ class IndexController extends Controller
 
     public function login()
     {
-        if(access()->hasRole(3) || access()->hasRole(4)){
-            return redirect(route('market.list'));
-        }
         return view('frontend.market.home-page');
     }
 }
