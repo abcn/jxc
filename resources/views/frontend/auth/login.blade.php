@@ -14,16 +14,16 @@
                     {!! Form::open(['url' => 'login', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('email', trans('validation.attributes.frontend.email'), ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('name', '用户名', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::input('email', 'email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.email')]) !!}
+                                {!! Form::input('text', 'name', null, ['class' => 'form-control', 'placeholder' => '用户名']) !!}
                             </div><!--col-md-6-->
                         </div><!--form-group-->
 
                         <div class="form-group">
-                            {!! Form::label('password', trans('validation.attributes.frontend.password'), ['class' => 'col-md-4 control-label']) !!}
+                            {!! Form::label('password', '密码', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-6">
-                                {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.password')]) !!}
+                                {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder' => '密码']) !!}
                             </div><!--col-md-6-->
                         </div><!--form-group-->
 

@@ -85,7 +85,8 @@ trait AuthenticatesUsers
      */
     public function loginUsername()
     {
-        return 'email';
+        //return 'email';
+        return 'name';
     }
 
     /**
