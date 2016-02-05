@@ -6,7 +6,7 @@
           <ul class="dropdown-menu" role="menu">
               <li><a href="{{ route('admin.market.index') }}">所有调查</a></li>
             {{--创建文章--}}
-            @permission('admin-create-market')
+            @permission('admin-market-create')
                 <li><a href="{{ route('admin.market.create') }}">新增市场调查</a></li>
             @endauth
             {{--end创建文章--}}
